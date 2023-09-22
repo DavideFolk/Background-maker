@@ -7,4 +7,5 @@ Librerie usate:
 customtkinter  
 SvgTurtle
 
+
 ![image](https://github.com/DavideFolk/Background-maker/assets/107867374/f9c00958-7cc6-47ac-ab65-72592648c606)
