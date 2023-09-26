@@ -10,7 +10,6 @@ list_color_hex = ['#caa46e', '#954b32', '#dec988', '#355d7b', '#aa9a29', '#8a1f1
 
 
 def create_background():
-    resolution = ''
     if option_menu.get() == '1920x1080':
         t = SvgTurtle(1920, 1080)
     elif option_menu.get() == '3440x1440':
