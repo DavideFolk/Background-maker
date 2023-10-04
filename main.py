@@ -2,7 +2,6 @@ import customtkinter as ctk
 from svg_turtle import SvgTurtle
 import random
 
-
 # ############################## svg turtle per creare sfondo
 list_color_hex = ['#caa46e', '#954b32', '#dec988', '#355d7b', '#aa9a29', '#8a1f14', '#86a3b8', '#c55c49', '#2f7956',
                   '#492b23', '#91b295', '#0e6246', '#e8b0a5', '#a08e9e', '#362d32', '#654b4d', '#b7cdab', '#243c4a',
@@ -27,6 +26,8 @@ def create_background():
         draw_triangle(t)
     elif form == 'Linee':
         draw_line(t)
+    elif form == 'Labirinto':
+        draw_labirinto(t)
 
 
 def draw_dot(t):
@@ -75,6 +76,25 @@ def draw_line(t):
     t.save_as('wallpaper.svg')
 
 
+def draw_labirinto(t):
+    coordinate_x = 0
+    coordinate_y = 0
+    t.clear()
+    t.pensize(12)
+    direction = [0, 90, 180, 270]
+    t.down()
+    for a in range(3):
+        t.goto(coordinate_x, coordinate_y)
+        t.down()
+        for _ in range(200):
+            t.color(random.choice(list_color_hex))
+            t.forward(40)
+            t.right(random.choice(direction))
+        t.up()
+    print('Wallpaper created!')
+    t.save_as('wallpaper.svg')
+
+
 # ############################## customTkinter per l'interfaccia
 app = ctk.CTk()
 app.geometry("500x300")
@@ -89,7 +109,7 @@ label.grid(row=0, column=0, padx=20, pady=(5, 10), columnspan=3)
 # frame
 frame = ctk.CTkFrame(master=app, width=450, height=400)
 frame.grid(row=1, column=0, padx=20, pady=(5, 10), columnspan=3)
-frame.grid_columnconfigure((0, 1, 2), weight=1)
+# frame.grid_columnconfigure((0, 1, 2), weight=1)
 
 # menu
 option_menu = ctk.CTkOptionMenu(frame, values=["1920x1080", "3440x1440"])
@@ -102,9 +122,9 @@ switch = ctk.CTkSwitch(frame, text="Sfondo nero",
 switch.grid(row=0, column=1, padx=20, pady=20)
 
 # scelta forma
-form_button = ctk.CTkSegmentedButton(frame, values=["Punti", "Triangoli", "Linee"])
+form_button = ctk.CTkSegmentedButton(frame, values=["Punti", "Triangoli", "Linee", "Labirinto"])
 form_button.set("Punti")
-form_button.grid(row=1, column=0, padx=(20), pady=(10), columnspan=2, sticky="ew")
+form_button.grid(row=1, column=0, padx=20, pady=10, columnspan=2, sticky="ew")
 
 # button crea
 button = ctk.CTkButton(app, text='Crea Sfondo', command=create_background)
