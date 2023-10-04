@@ -3,9 +3,8 @@
 Programma in python per creare wallpaper desktop. è possibile modificare la risoluzione, il colore di background e la tipologia di forma pattern.
 il programma crea un'immagine SVG.
 
+Il file per eseguire l'app sul proprio pc può essere scaricata [qui](https://github.com/DavideFolk/Background-maker/releases)
+
 Librerie usate:  
 customtkinter  
 SvgTurtle
-
-
-![image](https://github.com/DavideFolk/Background-maker/assets/107867374/f9c00958-7cc6-47ac-ab65-72592648c606)
